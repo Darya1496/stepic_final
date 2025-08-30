@@ -2,7 +2,7 @@ import time
 import pytest
 
 from pages.login_page import LoginPage
-from pages.shop.product_page import ProductPage
+from pages.product_page import ProductPage
 from pages.base_page import BasePage
 from pages.basket_page import BasketPage
 

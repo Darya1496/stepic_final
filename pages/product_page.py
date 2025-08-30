@@ -1,7 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.shop.locators_product_page import ProductPageLocators
+from pages.locators_product_page import ProductPageLocators
 from pages.base_page import BasePage
 
 
