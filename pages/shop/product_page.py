@@ -40,12 +40,12 @@ class ProductPage(BasePage):
         name_element = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located(ProductPageLocators.NAME_BOOK_ON_PAGE))
         return name_element.text.strip()
+
     def get_name_alert(self):
         """Получаем текст названия из сообщения (например, в корзине)"""
         name_alert_element = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located(ProductPageLocators.NAME_ADD_BOOK))
         return name_alert_element.text.strip()
-
 
     def should_be_same_name(self):
         """Сравниваем названия"""
@@ -56,3 +56,12 @@ class ProductPage(BasePage):
             f"Название в корзине не соответствует названию товара!\n" \
             f"На странице: {product_name}\n" \
             f"В сообщении: {alert_name}"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCSESS_ADD_BOOK), \
+            "Success message is presented, but should not be"
+
+
+    def should_disappeared_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCSESS_ADD_BOOK), \
+            "Success message is presented, but should be disappeared"
